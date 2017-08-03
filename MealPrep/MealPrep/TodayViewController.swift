@@ -23,9 +23,9 @@ class TodayViewController: UIViewController {
     
     @IBAction func apiCall(_ sender: Any) {
         
-        let query = "chicken"
-        let APPID = "4474418e"
-        let APPKEY = "af7d9dd7a8371d144724086c9d95b91e"
+//        let query = "chicken"
+//        let APPID = "4474418e"
+//        let APPKEY = "af7d9dd7a8371d144724086c9d95b91e"
         let urlBuilder = URL(string:"https://api.edamam.com/search?q=chicken&app_id=4474418e&app_key=af7d9dd7a8371d144724086c9d95b91e")
         
         if let url = urlBuilder {
@@ -35,6 +35,21 @@ class TodayViewController: UIViewController {
                 } else {
                     if let usableData = data {
                         print(usableData) //JSONSerialization
+                        
+                        do {
+                            
+                            let jsonResult = try JSONSerialization.jsonObject(with: usableData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            
+                            print(jsonResult)
+                            
+                            print(jsonResult["name"])
+                            
+                        } catch {
+                            
+                            print("JSON processing failed!")
+                            
+                        }
+                        
                     }
                 }
             }
