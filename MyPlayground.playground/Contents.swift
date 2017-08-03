@@ -5,7 +5,7 @@ import UIKit
 let query = "chicken"
 let APPID = "4474418e"
 let APPKEY = "af7d9dd7a8371d144724086c9d95b91e"
-let urlBuilder = "https://api.edamam.com/search?q="+query+"&app_id="+APPID+"&app_key=" +APPKEY
+let urlBuilder = "https://api.edamam.com/search?q="+query+"&app_id="+APPID+"&app_key=" + APPKEY
 
 if let url = urlBuilder {
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

@@ -21,6 +21,27 @@ class TodayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func apiCall(_ sender: Any) {
+        
+        let query = "chicken"
+        let APPID = "4474418e"
+        let APPKEY = "af7d9dd7a8371d144724086c9d95b91e"
+        let urlBuilder = URL(string:"https://api.edamam.com/search?q=chicken&app_id=4474418e&app_key=af7d9dd7a8371d144724086c9d95b91e")
+        
+        if let url = urlBuilder {
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let usableData = data {
+                        print(usableData) //JSONSerialization
+                    }
+                }
+            }
+            task.resume()
+        }
+        
+    }
     
 
     /*

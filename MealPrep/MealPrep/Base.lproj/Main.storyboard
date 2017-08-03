@@ -44,7 +44,7 @@
         <!--Overview-->
         <scene sceneID="MQJ-Zb-laq">
             <objects>
-                <viewController id="FrF-yn-XgY" customClass="OverviewViewController" customModule="MealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FrF-yn-XgY" customClass="WeeklyViewController" customModule="MealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lma-9m-kg0"/>
                         <viewControllerLayoutGuide type="bottom" id="QYG-IU-D2N"/>
@@ -214,6 +214,9 @@
                                 <rect key="frame" x="165" y="318" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="apiCall:" destination="ysY-tH-P6y" eventType="touchUpInside" id="qjG-Og-fEQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
