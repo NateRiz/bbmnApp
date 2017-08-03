@@ -11,7 +11,6 @@
 		D38B28221F2BDD2B0071D5B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38B28201F2BDD2B0071D5B9 /* Main.storyboard */; };
 		D38B28241F2BDD2B0071D5B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38B28231F2BDD2B0071D5B9 /* Assets.xcassets */; };
 		D38B28271F2BDD2B0071D5B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38B28251F2BDD2B0071D5B9 /* LaunchScreen.storyboard */; };
-		D38B284F1F2BE6290071D5B9 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B284E1F2BE6290071D5B9 /* OverviewViewController.swift */; };
 		D38B28511F2BE6430071D5B9 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B28501F2BE6430071D5B9 /* TodayViewController.swift */; };
 		D38B28531F2BE6520071D5B9 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B28521F2BE6520071D5B9 /* GroceryListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -23,7 +22,6 @@
 		D38B28231F2BDD2B0071D5B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38B28261F2BDD2B0071D5B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D38B28281F2BDD2B0071D5B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D38B284E1F2BE6290071D5B9 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewViewController.swift; path = /Users/Brian/Desktop/bbmnApp/MealPrep/MealPrep/OverviewViewController.swift; sourceTree = "<absolute>"; };
 		D38B28501F2BE6430071D5B9 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		D38B28521F2BE6520071D5B9 /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +56,6 @@
 		D38B281B1F2BDD2B0071D5B9 /* MealPrep */ = {
 			isa = PBXGroup;
 			children = (
-				D38B284E1F2BE6290071D5B9 /* OverviewViewController.swift */,
 				D38B28501F2BE6430071D5B9 /* TodayViewController.swift */,
 				D38B28521F2BE6520071D5B9 /* GroceryListViewController.swift */,
 				D38B281C1F2BDD2B0071D5B9 /* AppDelegate.swift */,
@@ -145,7 +142,6 @@
 			files = (
 				D38B28531F2BE6520071D5B9 /* GroceryListViewController.swift in Sources */,
 				D38B281D1F2BDD2B0071D5B9 /* AppDelegate.swift in Sources */,
-				D38B284F1F2BE6290071D5B9 /* OverviewViewController.swift in Sources */,
 				D38B28511F2BE6430071D5B9 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +308,7 @@
 				D38B282D1F2BDD2B0071D5B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
