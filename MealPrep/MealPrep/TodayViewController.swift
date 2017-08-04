@@ -9,7 +9,11 @@
 import UIKit
 
 class TodayViewController: UIViewController {
-
+    @IBOutlet weak var recipeLabel: UILabel!
+    @IBOutlet weak var ingredientsListLabel: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
+    
+    var ingredientsList = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,13 +47,29 @@ class TodayViewController: UIViewController {
                             //print(jsonResult)
                             
                             if let hits = jsonResult["hits"] as? NSArray {
-                                if let hit = hits[0] as? AnyObject{
-                                    if let recipe = hit["recipe"] as? AnyObject {
+                                if let hit = hits[0] as? [String: Any]{
+                                    if let recipe = hit["recipe"] as? [String: Any] {
+                                        if let imageURL = recipe["image"] as? String {
+                                            self.getImage(imageURL)
+                                        }
+                                        
                                         if let label0 = recipe["label"] as? String {
                                             print(label0)
+                                            DispatchQueue.main.async {
+                                                self.recipeLabel.text = label0
+                                            }
                                         }
-                                        if let ingredients = recipe["ingredients"] as? NSArray{
+                                        
+                                        if let ingredients = recipe["ingredientLines"] as? NSArray{
                                             print(ingredients)
+                                            for ingredient in ingredients {
+                                                
+                                                self.ingredientsList += "\(ingredient)\n"
+                                                
+                                            }
+                                            DispatchQueue.main.async {
+                                                self.ingredientsListLabel.text = self.ingredientsList
+                                            }
                                         }
                                     }
                                 }
@@ -69,6 +89,28 @@ class TodayViewController: UIViewController {
         
     }
     
+    func getImage(_ imageURL: String) {
+        let url = URL(string: imageURL)!
+        let request = NSMutableURLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                
+                if let data = data {
+                    if let image = UIImage(data: data) {
+                        
+                        DispatchQueue.main.async {
+                            self.recipeImage.image = image
+                        }
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
 
     /*
     // MARK: - Navigation

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYq-qF-L9E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYq-qF-L9E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -210,10 +210,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-tW-oRB">
-                                <rect key="frame" x="165" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hfw-XQ-1xs">
+                                <rect key="frame" x="16" y="57" width="343" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="301" id="pyr-T3-U4x"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCM-mT-wNE">
+                                <rect key="frame" x="16" y="366" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qKa-dX-iey">
+                                <rect key="frame" x="16" y="374" width="343" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YsE-MO-5H0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRU-tW-oRB">
+                                <rect key="frame" x="150" y="567" width="76" height="51"/>
+                                <state key="normal" title="Get Recipe"/>
                                 <connections>
                                     <action selector="apiCall:" destination="ysY-tH-P6y" eventType="touchUpInside" id="qjG-Og-fEQ"/>
                                 </connections>
@@ -221,15 +241,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FRU-tW-oRB" firstAttribute="top" secondItem="qKa-dX-iey" secondAttribute="bottom" constant="-7" id="2MO-cE-oz8"/>
+                            <constraint firstItem="FRU-tW-oRB" firstAttribute="centerX" secondItem="KvJ-Zq-X7g" secondAttribute="centerX" id="CsT-ju-Hua"/>
+                            <constraint firstItem="tCM-mT-wNE" firstAttribute="leading" secondItem="qKa-dX-iey" secondAttribute="leading" id="F8D-Uh-ruQ"/>
+                            <constraint firstItem="1m3-cd-fqF" firstAttribute="top" secondItem="FRU-tW-oRB" secondAttribute="bottom" id="MSg-pn-gZG"/>
+                            <constraint firstItem="Hfw-XQ-1xs" firstAttribute="leading" secondItem="KvJ-Zq-X7g" secondAttribute="leadingMargin" id="SpQ-db-opR"/>
                             <constraint firstItem="vJe-L2-7WU" firstAttribute="top" secondItem="Imd-5k-ziS" secondAttribute="bottom" constant="8" id="TkI-3w-2P6"/>
+                            <constraint firstItem="qKa-dX-iey" firstAttribute="trailing" secondItem="KvJ-Zq-X7g" secondAttribute="trailingMargin" id="Z7B-Oc-KJB"/>
+                            <constraint firstItem="Hfw-XQ-1xs" firstAttribute="trailing" secondItem="KvJ-Zq-X7g" secondAttribute="trailingMargin" id="boH-zL-uYf"/>
                             <constraint firstItem="vJe-L2-7WU" firstAttribute="centerX" secondItem="KvJ-Zq-X7g" secondAttribute="centerX" id="gYn-GZ-UIO"/>
+                            <constraint firstItem="tCM-mT-wNE" firstAttribute="top" secondItem="Hfw-XQ-1xs" secondAttribute="bottom" constant="8" id="n8H-b3-q98"/>
+                            <constraint firstItem="qKa-dX-iey" firstAttribute="top" secondItem="tCM-mT-wNE" secondAttribute="bottom" constant="8" id="nEU-sh-8th"/>
+                            <constraint firstItem="qKa-dX-iey" firstAttribute="leading" secondItem="KvJ-Zq-X7g" secondAttribute="leadingMargin" id="rRb-EW-Sqt"/>
+                            <constraint firstItem="Hfw-XQ-1xs" firstAttribute="centerX" secondItem="KvJ-Zq-X7g" secondAttribute="centerX" id="rhM-Qg-2ch"/>
+                            <constraint firstItem="Hfw-XQ-1xs" firstAttribute="top" secondItem="vJe-L2-7WU" secondAttribute="bottom" constant="8" id="vPK-pK-rnW"/>
+                            <constraint firstItem="tCM-mT-wNE" firstAttribute="trailing" secondItem="qKa-dX-iey" secondAttribute="trailing" id="vXa-oN-ufC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" id="gbE-h0-Qki"/>
+                    <connections>
+                        <outlet property="ingredientsListLabel" destination="qKa-dX-iey" id="Dle-5d-xnm"/>
+                        <outlet property="recipeImage" destination="Hfw-XQ-1xs" id="7id-3Z-mFJ"/>
+                        <outlet property="recipeLabel" destination="tCM-mT-wNE" id="47O-0E-Jvz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeu-sM-XdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841" y="277"/>
+            <point key="canvasLocation" x="840.79999999999995" y="276.61169415292358"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VgD-li-GRS">
