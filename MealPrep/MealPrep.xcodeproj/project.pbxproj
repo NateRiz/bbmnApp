@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22E31E91F352D4E00F05B96 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E31E81F352D4E00F05B96 /* RecipeListViewController.swift */; };
 		D38B281D1F2BDD2B0071D5B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B281C1F2BDD2B0071D5B9 /* AppDelegate.swift */; };
 		D38B28221F2BDD2B0071D5B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38B28201F2BDD2B0071D5B9 /* Main.storyboard */; };
 		D38B28241F2BDD2B0071D5B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38B28231F2BDD2B0071D5B9 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B22E31E81F352D4E00F05B96 /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		D38B28191F2BDD2B0071D5B9 /* MealPrep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealPrep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38B281C1F2BDD2B0071D5B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D38B28211F2BDD2B0071D5B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				D38B28231F2BDD2B0071D5B9 /* Assets.xcassets */,
 				D38B28251F2BDD2B0071D5B9 /* LaunchScreen.storyboard */,
 				D38B28281F2BDD2B0071D5B9 /* Info.plist */,
+				B22E31E81F352D4E00F05B96 /* RecipeListViewController.swift */,
 			);
 			path = MealPrep;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22E31E91F352D4E00F05B96 /* RecipeListViewController.swift in Sources */,
 				D38B28531F2BE6520071D5B9 /* GroceryListViewController.swift in Sources */,
 				D3C09B231F33E1B100021540 /* WeeklyViewController.swift in Sources */,
 				D38B281D1F2BDD2B0071D5B9 /* AppDelegate.swift in Sources */,
