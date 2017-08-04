@@ -40,9 +40,20 @@ class TodayViewController: UIViewController {
                             
                             let jsonResult = try JSONSerialization.jsonObject(with: usableData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                             
-                            print(jsonResult)
+                            //print(jsonResult)
                             
-                            print(jsonResult["name"])
+                            if let hits = jsonResult["hits"] as? NSArray {
+                                if let hit = hits[0] as? AnyObject{
+                                    if let recipe = hit["recipe"] as? AnyObject {
+                                        if let label0 = recipe["label"] as? String {
+                                            print(label0)
+                                        }
+                                        if let ingredients = recipe["ingredients"] as? NSArray{
+                                            print(ingredients)
+                                        }
+                                    }
+                                }
+                            }
                             
                         } catch {
                             
