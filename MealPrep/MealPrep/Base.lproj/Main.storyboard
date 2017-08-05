@@ -214,10 +214,12 @@
                                 <rect key="frame" x="321" y="28" width="31" height="30"/>
                                 <state key="normal" title="New"/>
                                 <connections>
-                                    <segue destination="5FE-Hd-QBT" kind="presentation" id="DT0-96-qte"/>
+                                    <segue destination="cDb-Ca-hcl" kind="popoverPresentation" popoverAnchorView="IPe-cd-Tbz" id="CUW-sM-q4b">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="You don't have any meals planned for today." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPV-mO-Mmk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any meals planned for today." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPV-mO-Mmk">
                                 <rect key="frame" x="19" y="66" width="336" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -226,9 +228,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IPV-mO-Mmk" firstAttribute="leading" secondItem="KvJ-Zq-X7g" secondAttribute="leadingMargin" constant="3" id="5DL-si-Bip"/>
+                            <constraint firstItem="IPV-mO-Mmk" firstAttribute="top" secondItem="IPe-cd-Tbz" secondAttribute="bottom" constant="8" id="92k-Qw-EqP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IPe-cd-Tbz" secondAttribute="trailing" constant="7" id="BBx-Ha-6is"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IPV-mO-Mmk" secondAttribute="trailing" constant="4" id="M5g-ov-h6N"/>
-                            <constraint firstItem="IPV-mO-Mmk" firstAttribute="leading" secondItem="KvJ-Zq-X7g" secondAttribute="leadingMargin" constant="3" id="Paf-x9-zg4"/>
                             <constraint firstItem="vJe-L2-7WU" firstAttribute="top" secondItem="Imd-5k-ziS" secondAttribute="bottom" constant="8" id="TkI-3w-2P6"/>
                             <constraint firstItem="vJe-L2-7WU" firstAttribute="centerX" secondItem="KvJ-Zq-X7g" secondAttribute="centerX" id="gYn-GZ-UIO"/>
                             <constraint firstItem="IPe-cd-Tbz" firstAttribute="top" secondItem="Imd-5k-ziS" secondAttribute="bottom" constant="8" id="xgw-ip-wAf"/>
@@ -241,37 +243,48 @@
             <point key="canvasLocation" x="840.79999999999995" y="276.61169415292358"/>
         </scene>
         <!--Recipe List View Controller-->
-        <scene sceneID="pRH-9D-Kmv">
+        <scene sceneID="R5r-Sr-EYQ">
             <objects>
-                <viewController id="5FE-Hd-QBT" customClass="RecipeListViewController" customModule="MealPrep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cDb-Ca-hcl" customClass="RecipeListViewController" customModule="MealPrep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2IT-Ib-dvO"/>
-                        <viewControllerLayoutGuide type="bottom" id="BZC-6J-ODW"/>
+                        <viewControllerLayoutGuide type="top" id="TwF-I3-7Db"/>
+                        <viewControllerLayoutGuide type="bottom" id="H2S-dk-0ZE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="g6I-5n-lAg">
+                    <view key="view" contentMode="scaleToFill" id="CEj-Lv-izG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-jx-a3v">
-                                <rect key="frame" x="16" y="28" width="343" height="619"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-ZG-J8U">
-                                        <rect key="frame" x="8" y="8" width="327" height="148"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </stackView>
-                                </subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCk-Yc-QYv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Build a Meal Plan" id="Gb1-Ai-C9g">
+                                        <barButtonItem key="leftBarButtonItem" title="X" id="wQ6-OF-a6e"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Search" id="LRe-qx-BeZ"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqg-Kv-D9n">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kCk-Yc-QYv" firstAttribute="leading" secondItem="CEj-Lv-izG" secondAttribute="leading" id="5SG-PF-fr7"/>
+                            <constraint firstItem="H2S-dk-0ZE" firstAttribute="top" secondItem="pqg-Kv-D9n" secondAttribute="bottom" id="HAl-Cc-G4F"/>
+                            <constraint firstAttribute="trailing" secondItem="pqg-Kv-D9n" secondAttribute="trailing" id="LB1-RP-VRy"/>
+                            <constraint firstItem="pqg-Kv-D9n" firstAttribute="top" secondItem="kCk-Yc-QYv" secondAttribute="bottom" id="OSl-D7-DYD"/>
+                            <constraint firstItem="kCk-Yc-QYv" firstAttribute="top" secondItem="CEj-Lv-izG" secondAttribute="top" id="QWG-8J-ESb"/>
+                            <constraint firstAttribute="trailing" secondItem="kCk-Yc-QYv" secondAttribute="trailing" id="hvN-xY-Vcy"/>
+                            <constraint firstItem="pqg-Kv-D9n" firstAttribute="leading" secondItem="CEj-Lv-izG" secondAttribute="leading" id="mSO-fu-HA4"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="recipeVerticalStack" destination="Z1r-ZG-J8U" id="xsa-aI-MVz"/>
+                        <outlet property="recipeScrollView" destination="pqg-Kv-D9n" id="Afa-fw-jCG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="38m-UU-apa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gnc-Yc-yZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610.4000000000001" y="278.41079460269867"/>
+            <point key="canvasLocation" x="1616.8" y="276.61169415292358"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VgD-li-GRS">

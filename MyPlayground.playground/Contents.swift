@@ -2,6 +2,14 @@
 
 import UIKit
 
+
+print(5/2)
+
+
+
+
+
+/*
 let query = "chicken"
 let APPID = "4474418e"
 let APPKEY = "af7d9dd7a8371d144724086c9d95b91e"
@@ -18,3 +26,4 @@ if let url = urlBuilder {
         }
     }
     task.resume()
+*/
