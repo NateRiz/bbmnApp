@@ -258,8 +258,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Build a Meal Plan" id="Gb1-Ai-C9g">
-                                        <barButtonItem key="leftBarButtonItem" title="X" id="wQ6-OF-a6e"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Search" id="LRe-qx-BeZ"/>
+                                        <barButtonItem key="leftBarButtonItem" title="X" id="wQ6-OF-a6e">
+                                            <connections>
+                                                <action selector="exitButton:" destination="cDb-Ca-hcl" id="MWY-RT-t0v"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Search" id="04h-Zy-0AR" userLabel="Search"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -283,6 +287,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnc-Yc-yZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="tds-kZ-yb8">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1616.8" y="276.61169415292358"/>
         </scene>
