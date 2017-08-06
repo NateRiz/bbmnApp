@@ -11,11 +11,11 @@ var ings: [String] = [
 "Salt and pepper", 
 "frozen peas" 
 ]
-
+print(ndbRequest("apple"))
 
 func ndbRequest(food:String) -> [String : Int] {
 	let apiKey="5pcSwVWh5dKjUq3REoxpZRLjUJWJT0qsub2vHtBw"
-	let urlBuilder=URL("https://api.nal.usda.gov/ndb/search/?format=json&q=" + food + "&sort=r&max=1&offset=0&api_key="+apiKey + )
+	let urlBuilder=URL("https://api.nal.usda.gov/ndb/search/?format=json&q=" + food + "&sort=r&max=1&offset=0&api_key="+apiKey)
 	if let url = urlBuilder{
 		let task = URLSession.shared.dataTask(with: url)
             {
@@ -40,6 +40,7 @@ func ndbRequest(food:String) -> [String : Int] {
 								if let result = results["item"] as? [String : Any]
 								{
 									if let ndbno = result["ndbno"] as? String{
+                                        print(ndbno)
 										return searchByNDBNO(query:ndbno)
 									}
 								}
@@ -64,6 +65,7 @@ func ndbRequest(food:String) -> [String : Int] {
 }
 
 func searchByNDBNO(query: String) -> [String : Int] {
+    return ["" : 0]
 	let apiKey="5pcSwVWh5dKjUq3REoxpZRLjUJWJT0qsub2vHtBw"
 	let urlBuilder=URL("https://api.nal.usda.gov/ndb/reports/?ndbno=" + query + "&type=b&format=json&api_key="+apiKey)
 	if let url = urlBuilder{

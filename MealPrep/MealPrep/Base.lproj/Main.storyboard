@@ -53,6 +53,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvH-2Y-kJL">
+                                <rect key="frame" x="180" y="290" width="63" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="FrF-yn-XgY" eventType="touchUpInside" id="Ztf-vT-lkU"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="A7q-A9-531">
                                 <rect key="frame" x="16" y="20" width="343" height="598"/>
                                 <subviews>
@@ -185,6 +193,11 @@
                             <constraint firstItem="A7q-A9-531" firstAttribute="leading" secondItem="II4-7j-A0L" secondAttribute="leadingMargin" id="WjU-Jh-e8d"/>
                             <constraint firstItem="QYG-IU-D2N" firstAttribute="top" secondItem="A7q-A9-531" secondAttribute="bottom" id="n5P-3f-9VT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="A7q-A9-531"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Overview" id="wXm-h9-UuR"/>
                 </viewController>
