@@ -14,7 +14,7 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var recipeScrollView: UIScrollView!
     @IBOutlet weak var recipeStackView: UIStackView!
 
-    
+    var horizontalStackImageHolder = [String:UIImageView]()
     
     var hits: NSArray?
     var query: String?
@@ -28,7 +28,7 @@ class RecipeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(self.recipeScrollView.subviews.count, " : " , self.recipeStackView.subviews.count)
+
         
         apiRequest()
         
@@ -97,27 +97,7 @@ class RecipeListViewController: UIViewController {
         
     }
     
-    func createNewStack(imgView: UIImageView)
-    {
-        DispatchQueue.main.async
-        {
-            
-            let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4)/2
-            self.recipeScrollView.contentSize.height=CGFloat(pictureSize*(1+self.recipeStackView.subviews.count))
-            
-            
-            let newStack=UIStackView()
-            newStack.axis = UILayoutConstraintAxis(rawValue: 0)!
-            newStack.frame = CGRect(x:CGFloat(0), y:CGFloat(self.recipeStackView.subviews.count * pictureSize), width:self.recipeStackView.frame.width, height: CGFloat(pictureSize))
-            newStack.addSubview(imgView)
-        
-        
-            self.recipeStackView.addSubview(newStack)
-            
-            
-        }
 
-    }
     
 
     
@@ -139,6 +119,7 @@ class RecipeListViewController: UIViewController {
                 if let recipe = hit["recipe"] as? [String : Any]{
                     if let label = recipe["label"] as? String{
                         if let imageURL = recipe["image"] as? String{
+                            print("getting image")
                             getImage(imageURL, label)
                         }
                     }
@@ -179,9 +160,7 @@ class RecipeListViewController: UIViewController {
     
     
     func getImage(_ imageURL: String, _ recipeLabel: String){
-        let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4)/2
-
-        let newImageView = UIImageView(frame:CGRect(x:0,y:0,width:pictureSize,height:pictureSize))
+        let newImageView = UIImageView()
         
         
         let url = URL(string: imageURL)!
@@ -196,7 +175,14 @@ class RecipeListViewController: UIViewController {
                     if let image = UIImage(data: data) {
                         
                         newImageView.image=image
-                        self.createNewStack(imgView:newImageView)
+                        print("appending")
+                        self.horizontalStackImageHolder["label"] = newImageView
+                        if self.horizontalStackImageHolder.count == 2
+                        {
+                            print("calling")
+                            self.createNewStack(imgViews: self.horizontalStackImageHolder)
+                            self.horizontalStackImageHolder.removeAll()
+                        }
                         
 
                     }
@@ -205,6 +191,62 @@ class RecipeListViewController: UIViewController {
         }
         
         task.resume()
+    }
+    
+    
+    func createNewStack(imgViews: [String:UIImageView])
+    {
+        if imgViews.count != 2{print("Function: CreateNewStack given unsupported imgviews count:",imgViews.count) ; return}
+        
+        var labels = [String]()
+        
+        for (label, _) in imgViews
+        {
+            labels.append(label)
+        }
+        print(labels[0] + ":" + labels[1])
+        
+        
+        DispatchQueue.main.async
+            {
+                
+                let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4) / 2
+                imgViews[labels[0]]!.frame = CGRect(x:0, y:0, width:pictureSize, height:pictureSize)
+                imgViews[labels[1]]!.frame = CGRect(x:0, y:0, width:pictureSize, height:pictureSize)
+                self.recipeScrollView.contentSize.height=CGFloat(pictureSize*(1+self.recipeStackView.subviews.count))
+                
+                
+                let newHorizStack=UIStackView()
+                newHorizStack.axis = UILayoutConstraintAxis(rawValue: 0)!
+                newHorizStack.frame = CGRect(x:CGFloat(0), y:CGFloat(self.recipeStackView.subviews.count * pictureSize), width:self.recipeStackView.frame.width, height: CGFloat(pictureSize))
+                newHorizStack.spacing = 4
+                
+                let leftVertStack = UIStackView()
+                leftVertStack.axis = UILayoutConstraintAxis(rawValue: 1)!
+                leftVertStack.frame = CGRect(x:0, y:0, width:pictureSize, height:pictureSize)
+                leftVertStack.addSubview(imgViews[labels[0]]!)
+                /*let leftLabel=UILabel()
+                leftLabel.text=labels[0]
+                leftVertStack.addSubview(leftLabel)
+                newHorizStack.addSubview(leftVertStack)
+                 */
+                let rightVertStack = UIStackView()
+                rightVertStack.axis = UILayoutConstraintAxis(rawValue: 1)!
+                rightVertStack.frame = CGRect(x:pictureSize, y:0, width:pictureSize, height:pictureSize)
+                rightVertStack.addSubview(imgViews[labels[1]]!)
+                /*let rightLabel=UILabel()
+                rightLabel.text=labels[0]
+                leftVertStack.addSubview(rightLabel)
+                newHorizStack.addSubview(rightVertStack)
+                */
+                
+                
+                self.recipeStackView.addSubview(newHorizStack)
+                print("added")
+                
+                
+        }
+        
     }
 
 }
