@@ -280,8 +280,19 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqg-Kv-D9n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqg-Kv-D9n">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-Nw-eZY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gwY-Nw-eZY" firstAttribute="leading" secondItem="pqg-Kv-D9n" secondAttribute="leading" id="O1f-kM-9L7"/>
+                                    <constraint firstAttribute="bottom" secondItem="gwY-Nw-eZY" secondAttribute="bottom" id="OaG-ZJ-qw4"/>
+                                    <constraint firstAttribute="trailing" secondItem="gwY-Nw-eZY" secondAttribute="trailing" id="ik1-ab-CcB"/>
+                                    <constraint firstItem="gwY-Nw-eZY" firstAttribute="top" secondItem="pqg-Kv-D9n" secondAttribute="top" id="vw7-f8-D6R"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,6 +308,7 @@
                     </view>
                     <connections>
                         <outlet property="recipeScrollView" destination="pqg-Kv-D9n" id="Afa-fw-jCG"/>
+                        <outlet property="recipeStackView" destination="gwY-Nw-eZY" id="A9D-lW-Znt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnc-Yc-yZc" userLabel="First Responder" sceneMemberID="firstResponder"/>

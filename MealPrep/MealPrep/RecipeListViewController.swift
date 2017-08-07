@@ -12,9 +12,10 @@ class RecipeListViewController: UIViewController {
     
 
     @IBOutlet weak var recipeScrollView: UIScrollView!
+    @IBOutlet weak var recipeStackView: UIStackView!
 
     
-    var imgCanvas = [String : UIImageView]()
+    
     var hits: NSArray?
     var query: String?
     
@@ -27,7 +28,7 @@ class RecipeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        print(self.recipeScrollView.subviews.count, " : " , self.recipeStackView.subviews.count)
         
         apiRequest()
         
@@ -43,11 +44,6 @@ class RecipeListViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func searchRecipes(_ sender: Any) {
-        
-        
-        
-    }
     
     func apiRequest()
         /*
@@ -101,6 +97,29 @@ class RecipeListViewController: UIViewController {
         
     }
     
+    func createNewStack(imgView: UIImageView)
+    {
+        DispatchQueue.main.async
+        {
+            
+            let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4)/2
+            self.recipeScrollView.contentSize.height=CGFloat(pictureSize*(1+self.recipeStackView.subviews.count))
+            
+            
+            let newStack=UIStackView()
+            newStack.axis = UILayoutConstraintAxis(rawValue: 0)!
+            newStack.frame = CGRect(x:CGFloat(0), y:CGFloat(self.recipeStackView.subviews.count * pictureSize), width:self.recipeStackView.frame.width, height: CGFloat(pictureSize))
+            newStack.addSubview(imgView)
+        
+        
+            self.recipeStackView.addSubview(newStack)
+            
+            
+        }
+
+    }
+    
+
     
     
     func fillCollectionView()
@@ -112,7 +131,7 @@ class RecipeListViewController: UIViewController {
     
         guard let hits=self.hits else {print("hits nil"); return}
         if (hits.count == 0) {print("hits empty"); return}
-        
+    
         
         for i in 0..<hits.count
         {
@@ -120,8 +139,6 @@ class RecipeListViewController: UIViewController {
                 if let recipe = hit["recipe"] as? [String : Any]{
                     if let label = recipe["label"] as? String{
                         if let imageURL = recipe["image"] as? String{
-                            //let recipeView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 148))
-                            self.imgCanvas[label]=UIImageView()
                             getImage(imageURL, label)
                         }
                     }
@@ -130,12 +147,11 @@ class RecipeListViewController: UIViewController {
             }
             
         }
-        DispatchQueue.main.async
+        /*DispatchQueue.main.async
         {
-            print(self.imgCanvas.count)
             
-            let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4)/2
-            self.recipeScrollView.contentSize.height=CGFloat( 50 + pictureSize*(1+(self.imgCanvas.count/2)))
+         
+         
             
             
             var increment: Int = 0
@@ -153,7 +169,7 @@ class RecipeListViewController: UIViewController {
                 
                 increment+=1
             }
-        }
+        }*/
         
     }
     
@@ -163,6 +179,11 @@ class RecipeListViewController: UIViewController {
     
     
     func getImage(_ imageURL: String, _ recipeLabel: String){
+        let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4)/2
+
+        let newImageView = UIImageView(frame:CGRect(x:0,y:0,width:pictureSize,height:pictureSize))
+        
+        
         let url = URL(string: imageURL)!
         let request = NSMutableURLRequest(url: url)
         
@@ -173,10 +194,11 @@ class RecipeListViewController: UIViewController {
                 
                 if let data = data {
                     if let image = UIImage(data: data) {
-                        DispatchQueue.main.async{
-                            self.imgCanvas[recipeLabel]!.image=image
-                            
-                        }
+                        
+                        newImageView.image=image
+                        self.createNewStack(imgView:newImageView)
+                        
+
                     }
                 }
             }
