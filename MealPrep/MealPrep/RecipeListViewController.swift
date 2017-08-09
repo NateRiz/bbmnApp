@@ -52,7 +52,7 @@ class RecipeListViewController: UIViewController {
          */
         
     {
-        let query: String = self.query != nil ? self.query! : "Chicken"
+        let query: String = self.query != nil ? self.query! : "Sushi"
         
         let urlBuilder = URL(string: "https://api.edamam.com/search?q="+query+"&app_id="+self.APPID+"&app_key="+self.APPKEY)
         if let url = urlBuilder
@@ -188,15 +188,16 @@ class RecipeListViewController: UIViewController {
                 let pictureSize: Int = (Int(self.recipeScrollView.frame.width) - 4 - 4 - 4) / 2
                 self.recipeScrollView.contentSize.height=CGFloat(pictureSize*(1+self.recipeStackView.subviews.count))
                 
-                
                 let newHorizStack=UIStackView()
                 newHorizStack.axis = UILayoutConstraintAxis(rawValue: 0)!
                 newHorizStack.distribution = UIStackViewDistribution(rawValue: 1)!
-                newHorizStack.spacing = 4
+                newHorizStack.layoutMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
                 
                 let leftVertStack = UIStackView()
+                leftVertStack.alignment = UIStackViewAlignment(rawValue: 3)!
                 leftVertStack.axis = UILayoutConstraintAxis(rawValue: 1)!
-
+                
+                imgViews[labels[0]]!.frame=CGRect(x:0, y:0, width: pictureSize, height: pictureSize)
                 leftVertStack.addArrangedSubview(imgViews[labels[0]]!)
                 let leftLabel=UILabel()
                 leftLabel.text=labels[0]
@@ -205,6 +206,9 @@ class RecipeListViewController: UIViewController {
  
                 let rightVertStack = UIStackView()
                 rightVertStack.axis = UILayoutConstraintAxis(rawValue: 1)!
+                rightVertStack.alignment = UIStackViewAlignment(rawValue: 3)!
+                
+                imgViews[labels[1]]!.frame=CGRect(x:0, y:0, width: pictureSize, height: pictureSize)
                 rightVertStack.addArrangedSubview(imgViews[labels[1]]!)
                 let rightLabel=UILabel()
                 rightLabel.text=labels[1]
