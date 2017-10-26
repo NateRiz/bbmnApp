@@ -14,6 +14,7 @@
 		D38B28511F2BE6430071D5B9 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B28501F2BE6430071D5B9 /* TodayViewController.swift */; };
 		D38B28531F2BE6520071D5B9 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38B28521F2BE6520071D5B9 /* GroceryListViewController.swift */; };
 		D3C09B231F33E1B100021540 /* WeeklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C09B221F33E1B100021540 /* WeeklyViewController.swift */; };
+		E1F329291F9FA3D900EE4BB6 /* dug.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F329281F9FA3D900EE4BB6 /* dug.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D38B28501F2BE6430071D5B9 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		D38B28521F2BE6520071D5B9 /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		D3C09B221F33E1B100021540 /* WeeklyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyViewController.swift; sourceTree = "<group>"; };
+		E1F329281F9FA3D900EE4BB6 /* dug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dug.png; path = ../../../dug.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				D3C09B221F33E1B100021540 /* WeeklyViewController.swift */,
 				D38B28201F2BDD2B0071D5B9 /* Main.storyboard */,
 				D38B28231F2BDD2B0071D5B9 /* Assets.xcassets */,
+				E1F329281F9FA3D900EE4BB6 /* dug.png */,
 				D38B28251F2BDD2B0071D5B9 /* LaunchScreen.storyboard */,
 				D38B28281F2BDD2B0071D5B9 /* Info.plist */,
 			);
@@ -132,6 +135,7 @@
 			files = (
 				D38B28271F2BDD2B0071D5B9 /* LaunchScreen.storyboard in Resources */,
 				D38B28241F2BDD2B0071D5B9 /* Assets.xcassets in Resources */,
+				E1F329291F9FA3D900EE4BB6 /* dug.png in Resources */,
 				D38B28221F2BDD2B0071D5B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
